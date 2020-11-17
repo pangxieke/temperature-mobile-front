@@ -1,0 +1,13 @@
+version: '3.1'
+
+services:
+  web:
+    container_name: temperature-mobile
+    image: registry.cn-shenzhen.aliyuncs.com/yzm-fe/temperature-mobile:latest
+    ports:
+      - 25110:25110
+    environment:
+      - NGINX_LISTEN_PORT=25110
+      - NGINX_SERVER_NAME=temperature.***.com
+      - NGINX_API_PREFIX=/v1
+      - NGINX_API_PROXY_PASS=https://***.***.com/temperature
